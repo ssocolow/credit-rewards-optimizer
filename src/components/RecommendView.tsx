@@ -19,21 +19,29 @@ export function RecommendView() {
 
   const selected = selectedId ? categoryById(selectedId) : null
 
-  return (
-    <div>
-      <CategoryPicker selectedId={selectedId} onSelect={setSelectedId} />
+  const select = (id: string) => {
+    setSelectedId(id)
+    window.scrollTo(0, 0) // results screen should start at the top
+  }
 
-      {selected && (
-        <>
-          <div className="result-head">
-            <h2>
-              {selected.emoji} {selected.name}
-            </h2>
-            <span className="muted">Q{quarter}</span>
-          </div>
-          <ResultList results={results} />
-        </>
-      )}
-    </div>
-  )
+  // Results screen: a dedicated "page" so the best card is visible without scrolling.
+  if (selected) {
+    return (
+      <div>
+        <button className="back-btn" onClick={() => setSelectedId(null)}>
+          ← All categories
+        </button>
+        <div className="result-head">
+          <h2>
+            {selected.emoji} {selected.name}
+          </h2>
+          <span className="muted">Q{quarter}</span>
+        </div>
+        <ResultList results={results} />
+      </div>
+    )
+  }
+
+  // Category picker screen.
+  return <CategoryPicker selectedId={null} onSelect={select} />
 }
