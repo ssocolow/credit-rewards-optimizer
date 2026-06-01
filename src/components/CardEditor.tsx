@@ -4,6 +4,9 @@ import { CATEGORIES } from '../data/categories'
 
 const QUARTERS: Quarter[] = [1, 2, 3, 4]
 
+/** Selectable bonus-category reward rates, in percent. */
+const RATE_OPTIONS = [2, 3, 5]
+
 /** Editor for a single card. Works for both new and existing cards. */
 export function CardEditor({
   initial,
@@ -84,13 +87,17 @@ export function CardEditor({
                   </option>
                 ))}
               </select>
-              <input
-                type="number"
-                inputMode="decimal"
-                value={rule.rate * 100}
-                onChange={(e) => updateRule(i, { rate: (parseFloat(e.target.value) || 0) / 100 })}
+              <select
+                value={Math.round(rule.rate * 100)}
+                onChange={(e) => updateRule(i, { rate: Number(e.target.value) / 100 })}
                 aria-label="rate percent"
-              />
+              >
+                {RATE_OPTIONS.map((p) => (
+                  <option key={p} value={p}>
+                    {p}%
+                  </option>
+                ))}
+              </select>
               <button className="link-btn" onClick={() => removeRule(i)}>
                 Remove
               </button>
