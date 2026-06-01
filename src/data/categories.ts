@@ -19,7 +19,7 @@ export const CATEGORIES: Category[] = [
   { id: 'wholesale', name: 'Wholesale Clubs', emoji: '🏬', mccs: [5300] },
   { id: 'entertainment', name: 'Entertainment', emoji: '🎟️', mccs: [7832, 7922, 7991, 7996, 7998] },
   { id: 'home', name: 'Home Improvement', emoji: '🔨', mccs: [5200, 5211, 5251] },
-  { id: 'fitness', name: 'Gyms & Fitness', emoji: '🏋️', mccs: [7997, 7298] },
+  { id: 'fitness', name: 'Fitness and Health', emoji: '🏋️', mccs: [7997, 7298] },
   { id: 'other', name: 'Everything Else', emoji: '🧾', mccs: [] },
 ]
 
