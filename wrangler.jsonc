@@ -1,0 +1,11 @@
+{
+  // Cloudflare Workers static-assets deploy for this Vite PWA.
+  // `npm run build` produces ./dist, which Wrangler uploads and serves.
+  "name": "credit-rewards-optimizer",
+  "compatibility_date": "2026-06-01",
+  "assets": {
+    "directory": "./dist",
+    // Serve index.html for any unmatched path (single-page app behavior).
+    "not_found_handling": "single-page-application"
+  }
+}
