@@ -1,0 +1,27 @@
+# dependencies
+node_modules/
+
+# build output
+dist/
+dist-ssr/
+dev-dist/
+
+# TypeScript build cache & tsc -b emit from config files
+*.tsbuildinfo
+vite.config.js
+vite.config.d.ts
+
+# logs
+*.log
+npm-debug.log*
+
+# editor / OS
+.DS_Store
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+# env
+.env
+.env.local
+.env.*.local
